@@ -1,0 +1,64 @@
+%\TEX program = pdflatex
+\documentclass[a4paper]{report}
+%[UTF8]{ctexart}
+
+\usepackage[utf8]{inputenc}       % Windows
+\usepackage[english, russian]{babel}
+\usepackage[T2A]{fontenc}
+
+\usepackage{graphicx}             % Для включения графических изображений
+\usepackage{fancyhdr}             % Для тонкой настройки колонтитулов
+\usepackage{makeidx}              % Для предметного указателя
+\usepackage{tikz}                 % Для добавления меток к скриншотам
+\usetikzlibrary{calc}
+\usetikzlibrary{backgrounds,fit}  % Для заднего фона
+\usetikzlibrary{shadows}          % Для теней
+\usetikzlibrary{arrows.meta}
+
+\usepackage{pscyr}
+\pdfmapfile{+pscyr.map}
+\renewcommand{\rmdefault}{fjn}
+\renewcommand{\sfdefault}{far}
+\renewcommand{\ttdefault}{fcr}
+
+% Создаем предметный указатель
+\makeindex
+
+% \title{123123}
+% \author{123123}
+% \date{\today}
+\begin{document}
+
+% Создаем
+% \maketitle
+
+% Окружения
+\newenvironment{Titul}
+{
+    \begin{center}}{\end{center}
+    \baselineskip 12pt
+    \addtolength{\textheight}{-14mm}
+}
+
+\newenvironment{Anot}
+{
+    \begin{quote}\settowidth{\parindent}{~~~}\scriptsize\mbox{~~~}}{\end{quote}
+}
+
+%% title, authors, affilations, anotation
+\input{chapters/Title}
+\pagebreak
+
+\tableofcontents
+\pagebreak
+
+% \printglossaries
+% \pagebreak
+
+% ====== Основной текст статьи ======
+\chapter{Введение}
+% Введение
+\input{chapters/ch01_01}
+% \pagebreak
+
+\end{document}
